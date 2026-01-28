@@ -21,62 +21,59 @@
             background: linear-gradient(135deg, var(--eg-blue), var(--eg-green));
         }
         .text-eg-blue { color: var(--eg-blue); }
-        .border-eg-blue { border-color: var(--eg-blue); }
         .border-eg-green { border-color: var(--eg-green); }
     </style>
 </head>
-<body class="text-slate-800 font-sans leading-relaxed">
+<body class="text-slate-800 font-sans leading-relaxed bg-white">
 
-    <header class="py-20 px-6 text-center bg-white">
+    <header class="py-16 px-6 text-center">
         <div class="max-w-4xl mx-auto">
-            <img src="logo.png" alt="Equals Genius Logo" class="h-48 md:h-64 mx-auto mb-8 drop-shadow-md">
-            <h2 class="text-2xl md:text-4xl font-light text-slate-600 italic tracking-tight">
+            <img src="logo.png" alt="Equals Genius Logo" class="h-40 md:h-56 mx-auto mb-8 drop-shadow-sm">
+            <h2 class="text-2xl md:text-3xl font-light text-slate-600 italic tracking-tight">
                 Empowering small businesses through <span class="font-semibold text-eg-blue">digital optimization</span> and <span class="font-semibold text-eg-blue text-opacity-80">automation</span>.
             </h2>
         </div>
     </header>
 
-    <main class="tech-bg">
-        
-        <section class="py-20 px-6">
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-3xl md:text-4xl font-bold mb-6 text-eg-blue border-l-4 border-eg-blue pl-6">
-                    Strategy & Transformation
-                </h3>
-                <p class="text-xl text-slate-600 leading-relaxed">
-                    We bridge the gap between vision and execution. Through collaborative visioning sessions and deep-dive process reviews, we identify your friction points and long-term aspirations to build a sustainable roadmap for success.
-                </p>
-            </div>
-        </section>
+    <main class="tech-bg py-16 px-6 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-3 gap-12">
+                
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-eg-blue border-l-4 border-eg-green pl-4">
+                        Strategy & Transformation
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        We bridge the gap between vision and execution. Through collaborative visioning sessions and deep-dive process reviews, we identify your friction points and long-term aspirations to build a sustainable roadmap for success.
+                    </p>
+                </div>
 
-        <section class="py-20 px-6 bg-slate-50/50">
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-3xl md:text-4xl font-bold mb-6 text-eg-blue border-l-4 border-eg-blue pl-6">
-                    Ecosystem Optimization
-                </h3>
-                <p class="text-xl text-slate-600 leading-relaxed">
-                    Master your digital environment. We analyze your current software—from Google Workspace and MS 365 to specialized industry tools—and refine your workflows. By eliminating redundancies and optimizing your current stack, we ensure your technology works for you, not against you.
-                </p>
-            </div>
-        </section>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-eg-blue border-l-4 border-eg-green pl-4">
+                        Ecosystem Optimization
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Master your digital environment. We analyze your current software from Google Workspace and Microsoft 365 to specialized industry tools and refine your workflows. By eliminating redundancies and optimizing your current stack, we ensure your technology works for you.
+                    </p>
+                </div>
 
-        <section class="py-20 px-6">
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-3xl md:text-4xl font-bold mb-6 text-eg-blue border-l-4 border-eg-green pl-6">
-                    AI-Driven Automation
-                </h3>
-                <p class="text-xl text-slate-600 leading-relaxed">
-                    Unlock the power of intelligent systems. We identify high-friction tasks and deploy tailored AI solutions to handle the heavy lifting. From automated data entry to intelligent process routing, we implement AI that reduces human error and dramatically accelerates your business pace.
-                </p>
-            </div>
-        </section>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-eg-blue border-l-4 border-eg-green pl-4">
+                        AI-Driven Automation
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Unlock the power of intelligent systems. We identify high-friction tasks and deploy tailored AI solutions to handle the heavy lifting. From automated data entry to intelligent process routing, we implement AI that reduces human error and dramatically accelerates your business pace.
+                    </p>
+                </div>
 
+            </div>
+        </div>
     </main>
 
-    <section class="py-24 px-6 bg-slate-900 text-white">
+    <section class="py-20 px-6 bg-slate-900 text-white">
         <div class="max-w-xl mx-auto">
-            <h3 class="text-4xl font-bold mb-4 text-center">Let's Optimize Your Business</h3>
-            <p class="text-slate-400 text-center mb-12 text-lg">Send a message to start your digital transformation.</p>
+            <h3 class="text-3xl font-bold mb-4 text-center">Let's Optimize Your Business</h3>
+            <p class="text-slate-400 text-center mb-10">Send a message to start your digital transformation.</p>
             
             <form action="#" method="POST" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
@@ -90,7 +87,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold mb-2">Message</label>
+                    <label class="block text-sm font-semibold mb-2">How can we help?</label>
                     <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:ring-2 focus:ring-eg-green focus:outline-none transition" placeholder="Tell us about your business needs..."></textarea>
                 </div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-gradient-eg font-bold text-white text-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-xl">
@@ -100,7 +97,7 @@
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-500 text-sm bg-white border-t border-slate-100">
+    <footer class="py-10 text-center text-slate-500 text-sm bg-white">
         <p>&copy; 2026 Equals Genius. All rights reserved.</p>
         <p class="mt-2 font-semibold text-eg-blue">info@equalsgenius.com</p>
     </footer>
