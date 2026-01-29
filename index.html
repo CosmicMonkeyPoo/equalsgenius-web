@@ -11,58 +11,144 @@
   <meta property="og:title" content="Equals Genius | Change Management & AI Strategy" />
   <meta property="og:description" content="Boutique change management and AI strategy support—aligned to execution." />
   <meta property="og:type" content="website" />
-  <!-- If you later add an OG image, update this path -->
-  <!-- <meta property="og:image" content="/og.png" /> -->
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicons (use the ones we generated if you want) -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="favicon_32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon_256.png" sizes="256x256" />
   <link rel="apple-touch-icon" href="favicon_180.png" />
 
-  <!-- Fonts: faster loading -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind via CDN (fine for now; world-class long-term would compile it) -->
+  <!-- Tailwind CDN (for now) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    html, body { width: 100%; margin: 0; }
-    body { font-family: 'Inter', sans-serif; }
+    :root{
+      /* Subtle cyberpunk palette */
+      --bg: #f7f8fc;
+      --ink: #0f172a;
+      --muted: #475569;
 
-    /* Smooth anchor scroll + respect reduced motion */
+      --neonA: #00d1ff;   /* cyan */
+      --neonB: #ff3df3;   /* magenta */
+      --neonC: #7c3aed;   /* violet */
+      --card: rgba(255,255,255,0.72);
+      --cardBorder: rgba(15,23,42,0.10);
+      --shadow: 0 18px 40px rgba(2,6,23,0.10);
+    }
+
+    html, body { width: 100%; margin: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); }
+
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
     }
 
-    /* Subtle grid background – only on Services section */
-    .section-grid {
+    /* Background: clean + faint “cyber” energy (no grid) */
+    .cyber-bg {
       position: relative;
+      overflow-x: hidden;
       isolation: isolate;
     }
-    .section-grid::before {
-      content: "";
-      position: absolute;
+    .cyber-bg::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(900px 500px at 10% 12%, rgba(0,209,255,0.18), transparent 60%),
+        radial-gradient(800px 520px at 92% 18%, rgba(255,61,243,0.14), transparent 62%),
+        radial-gradient(900px 600px at 50% 92%, rgba(124,58,237,0.10), transparent 65%),
+        linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(247,248,252,1));
+    }
+    /* Very subtle “scanline” texture */
+    .cyber-bg::after{
+      content:"";
+      position: fixed;
       inset: 0;
       z-index: -1;
-      background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.10) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.10) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.55;
-      mask-image: radial-gradient(ellipse 90% 70% at 50% 18%, #000 55%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 18%, #000 55%, transparent 100%);
+      pointer-events: none;
+      opacity: 0.20;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.035) 0px,
+          rgba(15, 23, 42, 0.035) 1px,
+          transparent 2px,
+          transparent 6px
+        );
+      mix-blend-mode: multiply;
     }
 
-    .soft-shadow { box-shadow: 0 14px 34px rgba(2, 6, 23, 0.08); }
+    /* Card “glass” */
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--cardBorder);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Neon accent rail */
+    .neon-rail {
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--neonA), var(--neonB));
+      box-shadow:
+        0 0 0 rgba(0,0,0,0),
+        0 0 14px rgba(0,209,255,0.25),
+        0 0 18px rgba(255,61,243,0.20);
+    }
+
+    /* Micro “circuit line” divider under headings */
+    .circuit-line {
+      height: 1px;
+      width: 120px;
+      margin: 14px auto 0;
+      background: linear-gradient(90deg, transparent, rgba(0,209,255,0.65), rgba(255,61,243,0.65), transparent);
+      opacity: 0.9;
+    }
+
+    /* Premium hover without going flashy */
+    .lift {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .lift:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 60px rgba(2,6,23,0.12);
+      border-color: rgba(0,209,255,0.22);
+    }
+
+    /* Focus states */
+    .focus-ring:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,209,255,0.35);
+      border-color: rgba(0,209,255,0.35) !important;
+    }
+
+    /* Subtle neon button */
+    .btn-neon {
+      position: relative;
+      background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(15,23,42,0.90));
+      border: 1px solid rgba(0,209,255,0.18);
+    }
+    .btn-neon:hover {
+      border-color: rgba(255,61,243,0.26);
+      box-shadow:
+        0 10px 28px rgba(2,6,23,0.12),
+        0 0 18px rgba(0,209,255,0.18),
+        0 0 22px rgba(255,61,243,0.14);
+    }
   </style>
 </head>
 
-<body class="bg-[#f6f7fb] text-slate-900 antialiased overflow-x-hidden">
+<body class="cyber-bg antialiased">
 
   <!-- Skip link (accessibility) -->
   <a href="#services"
@@ -71,20 +157,16 @@
   </a>
 
   <!-- Header -->
-  <header class="bg-[#f6f7fb] border-b border-slate-100">
+  <header class="border-b border-slate-100/70 bg-white/35">
     <div class="max-w-6xl mx-auto px-6 py-8">
 
-      <!-- Nav (centered so it can’t push layout right) -->
+      <!-- Nav -->
       <nav class="flex justify-center gap-8 text-sm font-semibold tracking-wide uppercase text-slate-500">
-        <a href="#services" class="hover:text-slate-900 transition focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-[#f6f7fb] rounded">
-          Services
-        </a>
-        <a href="#contact" class="hover:text-slate-900 transition focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-[#f6f7fb] rounded">
-          Contact
-        </a>
+        <a href="#services" class="hover:text-slate-900 transition rounded px-2 py-1">Services</a>
+        <a href="#contact" class="hover:text-slate-900 transition rounded px-2 py-1">Contact</a>
       </nav>
 
-      <!-- Logo + simple positioning line -->
+      <!-- Logo + one-liner -->
       <div class="mt-8 text-center">
         <div class="flex justify-center">
           <img
@@ -95,10 +177,11 @@
           />
         </div>
 
-        <!-- Simple one-liner (not a hero section) -->
         <p class="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
           Boutique consulting for change management and AI strategy—aligning people, process, and automation.
         </p>
+
+        <div class="circuit-line"></div>
       </div>
 
     </div>
@@ -106,7 +189,7 @@
 
   <!-- Services -->
   <main>
-    <section id="services" class="section-grid">
+    <section id="services">
       <div class="max-w-6xl mx-auto px-6 py-20">
 
         <div class="text-center max-w-3xl mx-auto mb-12">
@@ -118,9 +201,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          <article class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+          <article class="glass lift rounded-2xl p-8">
             <div class="flex gap-5">
-              <div class="w-1 rounded-full bg-emerald-500"></div>
+              <div class="neon-rail"></div>
               <div>
                 <h2 class="text-xl font-semibold mb-3 text-slate-900">Strategy &amp; Transformation</h2>
                 <p class="text-slate-600 leading-relaxed">
@@ -130,9 +213,9 @@
             </div>
           </article>
 
-          <article class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+          <article class="glass lift rounded-2xl p-8">
             <div class="flex gap-5">
-              <div class="w-1 rounded-full bg-emerald-500"></div>
+              <div class="neon-rail"></div>
               <div>
                 <h2 class="text-xl font-semibold mb-3 text-slate-900">Ecosystem Optimization</h2>
                 <p class="text-slate-600 leading-relaxed">
@@ -142,9 +225,9 @@
             </div>
           </article>
 
-          <article class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+          <article class="glass lift rounded-2xl p-8">
             <div class="flex gap-5">
-              <div class="w-1 rounded-full bg-emerald-500"></div>
+              <div class="neon-rail"></div>
               <div>
                 <h2 class="text-xl font-semibold mb-3 text-slate-900">AI-Driven Automation</h2>
                 <p class="text-slate-600 leading-relaxed">
@@ -159,7 +242,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-slate-50 border-t border-slate-100">
+    <section id="contact" class="border-t border-slate-100/70 bg-white/35">
       <div class="max-w-3xl mx-auto px-6 py-20">
 
         <div class="text-center">
@@ -167,9 +250,10 @@
           <p class="mt-4 text-slate-600 text-lg leading-relaxed">
             Send a brief message about your current challenge, and I’ll get back to you within 24 hours to schedule a consultation.
           </p>
+          <div class="circuit-line"></div>
         </div>
 
-        <div class="mt-10 bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+        <div class="mt-10 glass rounded-2xl p-8">
           <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-5" novalidate>
             <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
 
@@ -180,29 +264,29 @@
             </div>
 
             <div>
-              <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="name">Name</label>
+              <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2" for="name">Name</label>
               <input id="name" type="text" name="name" required autocomplete="name"
-                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 rounded-xl bg-white/70 border border-slate-200/70 focus-ring transition"
                 placeholder="Your name" />
             </div>
 
             <div>
-              <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="email">Email</label>
+              <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2" for="email">Email</label>
               <input id="email" type="email" name="email" required autocomplete="email"
-                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 rounded-xl bg-white/70 border border-slate-200/70 focus-ring transition"
                 placeholder="you@example.com" />
               <input type="hidden" name="_replyto" value="" />
             </div>
 
             <div>
-              <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="message">Message</label>
+              <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2" for="message">Message</label>
               <textarea id="message" name="message" rows="6" required
-                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 rounded-xl bg-white/70 border border-slate-200/70 focus-ring transition"
                 placeholder="What are you trying to accomplish?"></textarea>
             </div>
 
             <button id="submitBtn" type="submit"
-              class="w-full py-4 rounded-xl bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-emerald-500 transition soft-shadow disabled:opacity-60 disabled:cursor-not-allowed">
+              class="btn-neon w-full py-4 rounded-xl text-white font-bold uppercase tracking-widest text-sm transition disabled:opacity-60 disabled:cursor-not-allowed">
               Send message
             </button>
 
@@ -219,7 +303,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-100 bg-[#f6f7fb]">
+  <footer class="border-t border-slate-100/70">
     <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
       <p>© 2026 Equals Genius. All rights reserved.</p>
       <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
