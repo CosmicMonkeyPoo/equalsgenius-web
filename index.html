@@ -1,117 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equals Genius | Change Management & AI Strategy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        /* Professional fade for the grid */
-        .grid-mask {
-            mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
-            -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equals Genius | Change Management & AI Strategy</title>
+
+  <!-- Tailwind via CDN (fine for simple sites) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .grid-mask {
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+    }
+  </style>
 </head>
+
 <body class="bg-white text-slate-900 antialiased overflow-x-hidden">
+  <!-- Background grid -->
+  <div class="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] grid-mask"></div>
 
-    <div class="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] grid-mask"></div>
+  <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-3">
+      <img src="logo.png" alt="Equals Genius" class="h-16 w-auto object-contain filter brightness-105 contrast-105" />
+      <span class="sr-only">Equals Genius</span>
+    </a>
 
-    <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
-        <img src="logo.png" alt="Equals Genius" class="h-20 w-auto object-contain filter brightness-105 contrast-105">
-        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide uppercase text-slate-500">
-            <a href="#services" class="hover:text-slate-900 transition">Services</a>
-            <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+    <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase text-slate-500">
+      <a href="#services" class="hover:text-slate-900 transition">Services</a>
+      <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+    </div>
+
+    <a href="#contact" class="md:hidden inline-flex items-center px-4 py-2 rounded-full border border-slate-200 text-sm font-medium text-slate-700 hover:bg-white hover:shadow-sm transition">
+      Contact
+    </a>
+  </nav>
+
+  <header class="max-w-7xl mx-auto px-6 pt-14 pb-28">
+    <div class="max-w-4xl">
+      <div class="inline-block h-1.5 w-16 bg-[#22c55e] mb-8"></div>
+
+      <h1 class="text-4xl md:text-6xl font-light tracking-tight mb-8 leading-[1.12] text-slate-900">
+        Bridging the gap between
+        <span class="font-semibold italic text-slate-800">human intent</span>
+        and
+        <span class="font-semibold italic text-slate-800">AI execution.</span>
+      </h1>
+
+      <p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
+        Equals Genius is a boutique consultancy specializing in change management for the digital age.
+        We help organizations navigate disruption by aligning people, processes, and automation.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="inline-flex justify-center items-center px-10 py-4 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition shadow-xl hover:-translate-y-1 transform duration-200">
+          Let’s collaborate
+        </a>
+        <a href="#services" class="inline-flex justify-center items-center px-10 py-4 rounded-full font-medium border border-slate-200 text-slate-700 hover:bg-white hover:shadow-sm transition">
+          View services
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="services" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-100">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="group">
+        <div class="h-1 w-10 bg-[#22c55e] mb-6 group-hover:w-full transition-all duration-500"></div>
+        <h3 class="text-2xl font-semibold mb-4 text-slate-900">Strategy & Transformation</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Custom change management frameworks designed for the unique complexities of large-scale digital evolution.
+        </p>
+      </div>
+
+      <div class="group">
+        <div class="h-1 w-10 bg-[#22c55e] mb-6 group-hover:w-full transition-all duration-500"></div>
+        <h3 class="text-2xl font-semibold mb-4 text-slate-900">Ecosystem Optimization</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Reviewing your current organizational stack to identify silos and streamline cross-functional workflows.
+        </p>
+      </div>
+
+      <div class="group">
+        <div class="h-1 w-10 bg-[#22c55e] mb-6 group-hover:w-full transition-all duration-500"></div>
+        <h3 class="text-2xl font-semibold mb-4 text-slate-900">AI-Driven Automation</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Thoughtful integration of generative AI tools that enhance human productivity rather than replacing it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-slate-50 py-28">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <div>
+        <h2 class="text-4xl font-light mb-8">Ready to evolve?</h2>
+        <p class="text-lg text-slate-600 mb-10">
+          Send a brief message about your current challenge, and I’ll get back to you within 24 hours to schedule a consultation.
+        </p>
+
+        <div class="space-y-6 text-slate-900 font-medium">
+          <p class="flex items-center">
+            <span class="w-10 h-px bg-[#22c55e] mr-4"></span>
+            <a class="hover:underline" href="mailto:info@equalsgenius.com">info@equalsgenius.com</a>
+          </p>
+          <p class="flex items-center">
+            <span class="w-10 h-px bg-[#22c55e] mr-4"></span>
+            Based in Leesburg, VA
+          </p>
         </div>
-    </nav>
+      </div>
 
-    <header class="max-w-7xl mx-auto px-6 pt-16 pb-32">
-        <div class="max-w-4xl">
-            <div class="inline-block h-1.5 w-16 bg-[#22c55e] mb-8"></div>
-            <h1 class="text-4xl md:text-6xl font-light tracking-tight mb-8 leading-[1.15] text-slate-900">
-                Bridging the gap between <span class="font-semibold italic text-slate-800">human intent</span> and <span class="font-semibold italic text-slate-800">AI execution.</span>
-            </h1>
-            <p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                Equals Genius is a boutique consultancy specializing in change management for the digital age. We help organizations navigate disruption by aligning people, processes, and automation.
-            </p>
-            <a href="#contact" class="inline-flex items-center px-10 py-4 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition shadow-xl hover:-translate-y-1 transform duration-200">
-                Let's collaborate
-            </a>
-        </div>
-    </header>
+      <!-- Contact Form (AJAX to Formspree) -->
+      <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+        <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-6" novalidate>
+          <!-- Subject line for your inbox -->
+          <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
 
-    <section id="services" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-100">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="group">
-                <div class="h-1 w-10 bg-[#22c55e] mb-6 group-hover:w-full transition-all duration-500"></div>
-                <h3 class="text-2xl font-semibold mb-4 text-slate-900">Strategy & Transformation</h3>
-                <p class="text-slate-600 leading-relaxed">
-                    Custom change management frameworks designed for the unique complexities of large-scale digital evolution.
-                </p>
-            </div>
-            <div class="group">
-                <div class="h-1 w-10 bg-[#22c55e] mb-6 group-hover:w-full transition-all duration-500"></div>
-                <h3 class="text-2xl font-semibold mb-4 text-slate-900">Ecosystem Optimization</h3>
-                <p class="text-slate-600 leading-relaxed">
-                    Reviewing your current organizational stack to identify silos and streamline cross-functional workflows.
-                </p>
-            </div>
-            <div class="group">
-                <div class="h-1 w-10 bg-[#22c55e] mb-6 group-hover:w-full transition-all duration-500"></div>
-                <h3 class="text-2xl font-semibold mb-4 text-slate-900">AI-Driven Automation</h3>
-                <p class="text-slate-600 leading-relaxed">
-                    Thoughtful integration of generative AI tools that enhance human productivity rather than replacing it.
-                </p>
-            </div>
-        </div>
-    </section>
+          <!-- Honeypot (spam trap) -->
+          <div class="hidden" aria-hidden="true">
+            <label>Leave this field empty</label>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
 
-    <section id="contact" class="bg-slate-50 py-32">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-24">
-            <div>
-                <h2 class="text-4xl font-light mb-8">Ready to evolve?</h2>
-                <p class="text-lg text-slate-600 mb-10">
-                    Send a brief message about your current challenge, and I'll get back to you within 24 hours to schedule a consultation.
-                </p>
-                <div class="space-y-6 text-slate-900 font-medium">
-                    <p class="flex items-center">
-                        <span class="w-10 h-px bg-[#22c55e] mr-4"></span>
-                        info@equalsgenius.com
-                    </p>
-                    <p class="flex items-center">
-                        <span class="w-10 h-px bg-[#22c55e] mr-4"></span>
-                        Based in Leesburg, VA
-                    </p>
-                </div>
-            </div>
-            
-            <form action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-6 bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site">
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Name</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:outline-none focus:border-[#22c55e] transition rounded">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Email</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:outline-none focus:border-[#22c55e] transition rounded">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Message</label>
-                    <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:outline-none focus:border-[#22c55e] transition rounded"></textarea>
-                </div>
-                <button type="submit" class="w-full py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-[#22c55e] transition shadow-md rounded">
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </section>
+          <div>
+            <label for="name" class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22c55e] focus:border-transparent transition"
+              placeholder="Your name"
+            />
+          </div>
 
-    <footer class="max-w-7xl mx-auto px-6 py-12 text-sm text-slate-400 border-t border-slate-100 flex justify-between">
-        <p>© 2026 Equals Genius. All rights reserved.</p>
-        <p>Built for the digital age.</p>
-    </footer>
+          <div>
+            <label for="email" class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22c55e] focus:border-transparent transition"
+              placeholder="you@example.com"
+            />
+            <!-- Some form handlers like _replyto; harmless to include -->
+            <input type="hidden" name="_replyto" value="" />
+          </div>
 
+          <div>
+            <label for="message" class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22c55e] focus:border-transparent transition"
+              placeholder="What are you trying to accomplish?"
+            ></textarea>
+          </div>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            class="w-full py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-[#22c55e] transition shadow-md rounded-xl disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            Send Message
+          </button>
+
+          <!-- Inline status -->
+          <div id="formStatus" class="text-sm hidden"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-7xl mx-auto px-6 py-12 text-sm text-slate-400 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-2">
+    <p>© 2026 Equals Genius. All rights reserved.</p>
+    <p>Built for the digital age.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function setStatus(type, message) {
+      statusEl.classList.remove('hidden');
+      statusEl.classList.remove('text-green-700', 'text-red-700', 'text-slate-600');
+      statusEl.classList.add(type === 'success' ? 'text-green-700' : type === 'error' ? 'text-red-700' : 'text-slate-600');
+      statusEl.textContent = message;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Basic browser validation UI replacement
+      if (!form.checkValidity()) {
+        setStatus('error', 'Please complete all fields using a valid email address.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus('info', 'Sending…');
+
+      // Keep _replyto aligned to email (some handlers use it)
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const replyTo = form.querySelector('input[name="_replyto"]');
+      if (replyTo) replyTo.value = email;
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          setStatus('success', 'Message sent. I’ll be in touch soon.');
+        } else {
+          // Formspree returns JSON errors in many cases
+          let data = null;
+          try { data = await res.json(); } catch {}
+          const msg = (data && data.errors && data.errors[0] && data.errors[0].message)
+            ? data.errors[0].message
+            : 'Something went wrong sending your message. Please try again.';
+          setStatus('error', msg);
+        }
+      } catch (err) {
+        setStatus('error', 'Network error. Please try again, or email info@equalsgenius.com.');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
