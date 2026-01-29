@@ -9,6 +9,7 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    html, body { width: 100%; margin: 0; }
     body { font-family: 'Inter', sans-serif; }
 
     /* Grid background – only on Services section */
@@ -25,7 +26,7 @@
         linear-gradient(to right, rgba(15, 23, 42, 0.12) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(15, 23, 42, 0.12) 1px, transparent 1px);
       background-size: 56px 56px;
-      opacity: 0.65; /* 0.50 subtle | 0.65 noticeable | 0.75 loud */
+      opacity: 0.65;
       mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 55%, transparent 100%);
       -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 55%, transparent 100%);
     }
@@ -34,17 +35,17 @@
   </style>
 </head>
 
-<body class="bg-[#f6f7fb] text-slate-900 antialiased">
+<body class="bg-[#f6f7fb] text-slate-900 antialiased overflow-x-hidden">
 
-  <!-- Top: Nav + Centered Logo -->
+  <!-- Header -->
   <header class="bg-[#f6f7fb] border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-6 py-8">
-      <div class="flex items-center justify-end">
-        <nav class="flex items-center gap-8 text-sm font-medium tracking-wide uppercase text-slate-500">
-          <a href="#services" class="hover:text-slate-900 transition">Services</a>
-          <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
-        </nav>
-      </div>
+
+      <!-- Nav (kept simple + centered so it can’t shove layout) -->
+      <nav class="flex justify-center gap-8 text-sm font-medium tracking-wide uppercase text-slate-500">
+        <a href="#services" class="hover:text-slate-900 transition">Services</a>
+        <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+      </nav>
 
       <!-- BIG centered logo -->
       <div class="mt-8 flex justify-center">
@@ -55,8 +56,6 @@
         />
       </div>
 
-      <!-- Note: if the logo background is baked into the PNG, this page background should blend it.
-           Best long-term fix is exporting the logo with transparency (PNG transparent or SVG). -->
     </div>
   </header>
 
@@ -73,7 +72,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Card 1 -->
         <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
           <div class="flex gap-5">
             <div class="w-1 rounded-full bg-emerald-500"></div>
@@ -86,7 +84,6 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
           <div class="flex gap-5">
             <div class="w-1 rounded-full bg-emerald-500"></div>
@@ -99,7 +96,6 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
           <div class="flex gap-5">
             <div class="w-1 rounded-full bg-emerald-500"></div>
@@ -117,7 +113,7 @@
     </div>
   </section>
 
-  <!-- Contact: headline + paragraph ABOVE form (single column, centered) -->
+  <!-- Contact -->
   <section id="contact" class="bg-slate-50 border-t border-slate-100">
     <div class="max-w-3xl mx-auto px-6 py-20">
 
@@ -172,7 +168,7 @@
     </div>
   </section>
 
-  <!-- Footer: email + location -->
+  <!-- Footer -->
   <footer class="border-t border-slate-100 bg-[#f6f7fb]">
     <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
       <p>© 2026 Equals Genius. All rights reserved.</p>
