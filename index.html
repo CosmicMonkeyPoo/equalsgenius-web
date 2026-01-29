@@ -3,16 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Equals Genius | Change Management & AI Strategy</title>
 
+  <title>Equals Genius | Change Management & AI Strategy</title>
+  <meta name="description" content="Equals Genius is a boutique consultancy providing change management and AI strategy—aligning people, process, and automation for real execution." />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Equals Genius | Change Management & AI Strategy" />
+  <meta property="og:description" content="Boutique change management and AI strategy support—aligned to execution." />
+  <meta property="og:type" content="website" />
+  <!-- If you later add an OG image, update this path -->
+  <!-- <meta property="og:image" content="/og.png" /> -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons (use the ones we generated if you want) -->
+  <link rel="icon" type="image/png" href="favicon_32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon_256.png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="favicon_180.png" />
+
+  <!-- Fonts: faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind via CDN (fine for now; world-class long-term would compile it) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
     html, body { width: 100%; margin: 0; }
     body { font-family: 'Inter', sans-serif; }
 
-    /* Grid background – only on Services section */
+    /* Smooth anchor scroll + respect reduced motion */
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* Subtle grid background – only on Services section */
     .section-grid {
       position: relative;
       isolation: isolate;
@@ -23,12 +50,12 @@
       inset: 0;
       z-index: -1;
       background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.12) 1px, transparent 1px);
-      background-size: 56px 56px;
-      opacity: 0.65;
-      mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 55%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 55%, transparent 100%);
+        linear-gradient(to right, rgba(15, 23, 42, 0.10) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.10) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.55;
+      mask-image: radial-gradient(ellipse 90% 70% at 50% 18%, #000 55%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 18%, #000 55%, transparent 100%);
     }
 
     .soft-shadow { box-shadow: 0 14px 34px rgba(2, 6, 23, 0.08); }
@@ -37,136 +64,159 @@
 
 <body class="bg-[#f6f7fb] text-slate-900 antialiased overflow-x-hidden">
 
+  <!-- Skip link (accessibility) -->
+  <a href="#services"
+     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow">
+    Skip to content
+  </a>
+
   <!-- Header -->
   <header class="bg-[#f6f7fb] border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-6 py-8">
 
-      <!-- Nav (kept simple + centered so it can’t shove layout) -->
-      <nav class="flex justify-center gap-8 text-sm font-medium tracking-wide uppercase text-slate-500">
-        <a href="#services" class="hover:text-slate-900 transition">Services</a>
-        <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+      <!-- Nav (centered so it can’t push layout right) -->
+      <nav class="flex justify-center gap-8 text-sm font-semibold tracking-wide uppercase text-slate-500">
+        <a href="#services" class="hover:text-slate-900 transition focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-[#f6f7fb] rounded">
+          Services
+        </a>
+        <a href="#contact" class="hover:text-slate-900 transition focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-[#f6f7fb] rounded">
+          Contact
+        </a>
       </nav>
 
-      <!-- BIG centered logo -->
-      <div class="mt-8 flex justify-center">
-        <img
-          src="logo.png"
-          alt="Equals Genius"
-          class="h-56 md:h-72 w-auto object-contain"
-        />
+      <!-- Logo + simple positioning line -->
+      <div class="mt-8 text-center">
+        <div class="flex justify-center">
+          <img
+            src="logo.png"
+            alt="Equals Genius"
+            class="h-56 md:h-72 w-auto object-contain"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Simple one-liner (not a hero section) -->
+        <p class="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
+          Boutique consulting for change management and AI strategy—aligning people, process, and automation.
+        </p>
       </div>
 
     </div>
   </header>
 
   <!-- Services -->
-  <section id="services" class="section-grid">
-    <div class="max-w-6xl mx-auto px-6 py-20">
+  <main>
+    <section id="services" class="section-grid">
+      <div class="max-w-6xl mx-auto px-6 py-20">
 
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-3xl md:text-4xl font-light">Services</h2>
-        <p class="mt-3 text-slate-600">
-          Change management and AI strategy support that’s practical, structured, and built for execution.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-          <div class="flex gap-5">
-            <div class="w-1 rounded-full bg-emerald-500"></div>
-            <div>
-              <h3 class="text-xl font-semibold mb-3 text-slate-900">Strategy &amp; Transformation</h3>
-              <p class="text-slate-600 leading-relaxed">
-                Change strategy and adoption planning for complex, high-impact transformations.
-              </p>
-            </div>
-          </div>
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h1 class="text-3xl md:text-4xl font-light">Services</h1>
+          <p class="mt-3 text-slate-600">
+            Practical, structured support built for execution—not slideware.
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-          <div class="flex gap-5">
-            <div class="w-1 rounded-full bg-emerald-500"></div>
-            <div>
-              <h3 class="text-xl font-semibold mb-3 text-slate-900">Ecosystem Optimization</h3>
-              <p class="text-slate-600 leading-relaxed">
-                Identify friction, reduce silos, and streamline workflows across people, process, and tools.
-              </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <article class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-emerald-500"></div>
+              <div>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">Strategy &amp; Transformation</h2>
+                <p class="text-slate-600 leading-relaxed">
+                  Change strategy and adoption planning for complex, high-impact transformations.
+                </p>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <article class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-emerald-500"></div>
+              <div>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">Ecosystem Optimization</h2>
+                <p class="text-slate-600 leading-relaxed">
+                  Identify friction, reduce silos, and streamline workflows across people, process, and tools.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-emerald-500"></div>
+              <div>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">AI-Driven Automation</h2>
+                <p class="text-slate-600 leading-relaxed">
+                  Responsible automation design with guardrails—enhancing productivity without chaos.
+                </p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-slate-50 border-t border-slate-100">
+      <div class="max-w-3xl mx-auto px-6 py-20">
+
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-light">Ready to evolve?</h2>
+          <p class="mt-4 text-slate-600 text-lg leading-relaxed">
+            Send a brief message about your current challenge, and I’ll get back to you within 24 hours to schedule a consultation.
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-          <div class="flex gap-5">
-            <div class="w-1 rounded-full bg-emerald-500"></div>
-            <div>
-              <h3 class="text-xl font-semibold mb-3 text-slate-900">AI-Driven Automation</h3>
-              <p class="text-slate-600 leading-relaxed">
-                Responsible automation design with guardrails—enhancing productivity without chaos.
-              </p>
+        <div class="mt-10 bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+          <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-5" novalidate>
+            <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
+
+            <!-- Honeypot -->
+            <div class="hidden" aria-hidden="true">
+              <label>Leave this field empty</label>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
             </div>
-          </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="name">Name</label>
+              <input id="name" type="text" name="name" required autocomplete="name"
+                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                placeholder="Your name" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="email">Email</label>
+              <input id="email" type="email" name="email" required autocomplete="email"
+                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                placeholder="you@example.com" />
+              <input type="hidden" name="_replyto" value="" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required
+                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                placeholder="What are you trying to accomplish?"></textarea>
+            </div>
+
+            <button id="submitBtn" type="submit"
+              class="w-full py-4 rounded-xl bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-emerald-500 transition soft-shadow disabled:opacity-60 disabled:cursor-not-allowed">
+              Send message
+            </button>
+
+            <p class="text-xs text-slate-500 text-center">
+              No spam—your information stays private.
+            </p>
+
+            <div id="formStatus" class="text-sm hidden text-center"></div>
+          </form>
         </div>
 
       </div>
-
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="bg-slate-50 border-t border-slate-100">
-    <div class="max-w-3xl mx-auto px-6 py-20">
-
-      <div class="text-center">
-        <h2 class="text-3xl md:text-4xl font-light">Ready to evolve?</h2>
-        <p class="mt-4 text-slate-600 text-lg leading-relaxed">
-          Send a brief message about your current challenge, and I’ll get back to you within 24 hours to schedule a consultation.
-        </p>
-      </div>
-
-      <div class="mt-10 bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-        <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-5" novalidate>
-          <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
-
-          <!-- Honeypot -->
-          <div class="hidden" aria-hidden="true">
-            <label>Leave this field empty</label>
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="name">Name</label>
-            <input id="name" type="text" name="name" required autocomplete="name"
-              class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
-              placeholder="Your name" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="email">Email</label>
-            <input id="email" type="email" name="email" required autocomplete="email"
-              class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
-              placeholder="you@example.com" />
-            <input type="hidden" name="_replyto" value="" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required
-              class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
-              placeholder="What are you trying to accomplish?"></textarea>
-          </div>
-
-          <button id="submitBtn" type="submit"
-            class="w-full py-4 rounded-xl bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-emerald-500 transition soft-shadow disabled:opacity-60 disabled:cursor-not-allowed">
-            Send message
-          </button>
-
-          <div id="formStatus" class="text-sm hidden"></div>
-        </form>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="border-t border-slate-100 bg-[#f6f7fb]">
