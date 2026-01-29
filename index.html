@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Equals Genius | Change Management & AI Strategy</title>
-  <meta name="description" content="Equals Genius is a boutique consultancy for change management and AI strategy. We align people, process, and automation for measurable outcomes." />
+  <title>Equals Genius | Practical AI for Small Business</title>
+  <meta name="description" content="Equals Genius helps small businesses get clear, get organized, and use AI in practical ways." />
 
-  <meta property="og:title" content="Equals Genius | Change Management & AI Strategy" />
-  <meta property="og:description" content="Boutique change management and AI strategy. We align people, process, and automation for measurable outcomes." />
+  <meta property="og:title" content="Equals Genius | Practical AI for Small Business" />
+  <meta property="og:description" content="Helping small businesses get clear, get organized, and use AI in practical ways." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -133,7 +133,7 @@
       50% { background-position: 0% 100%; }
     }
 
-    /* Headings: solid color, cyber underline so contrast never drops */
+    /* Headings: solid color, underline stays readable */
     .title-solid {
       color: var(--ink);
       letter-spacing: -0.015em;
@@ -224,9 +224,8 @@
 
       <div class="mt-8 text-center">
         <div class="flex justify-center">
-          <!-- This query string forces mobile/CDN to fetch the newest image without renaming the file -->
           <img
-            src="logo.png?v=20260129-1"
+            src="logo.png?v=20260129-2"
             alt="Equals Genius"
             class="h-56 md:h-72 w-auto object-contain"
             loading="eager"
@@ -235,7 +234,7 @@
         </div>
 
         <p class="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
-          Boutique consulting for change management and AI strategy. We align people, process, and automation.
+          Helping small businesses get clear, get organized, and use AI in practical ways.
         </p>
 
         <div class="title-underline"></div>
@@ -250,9 +249,6 @@
 
         <div class="text-center max-w-3xl mx-auto mb-12">
           <h1 class="text-3xl md:text-4xl font-light title-solid">Services</h1>
-          <p class="mt-3 text-slate-600">
-            Change strategy, workflow optimization, and responsible automation design for complex organizations.
-          </p>
           <div class="title-underline"></div>
         </div>
 
@@ -265,9 +261,9 @@
             <div class="flex gap-5">
               <div class="neon-rail"></div>
               <div>
-                <h2 class="text-xl font-semibold mb-3 text-slate-900">Strategy &amp; Transformation</h2>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">Business Clarity Session</h2>
                 <p class="text-slate-600 leading-relaxed">
-                  Change strategy and adoption planning for complex, high impact transformations.
+                  A guided conversation that turns your goals and pain points into a clear plan you can act on.
                 </p>
               </div>
             </div>
@@ -280,9 +276,9 @@
             <div class="flex gap-5">
               <div class="neon-rail"></div>
               <div>
-                <h2 class="text-xl font-semibold mb-3 text-slate-900">Ecosystem Optimization</h2>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">Tech Stack Tune-Up</h2>
                 <p class="text-slate-600 leading-relaxed">
-                  Identify friction, reduce silos, and streamline workflows across people, process, and tools.
+                  We review the apps you use, fix what’s not working, and simplify the way they connect.
                 </p>
               </div>
             </div>
@@ -295,9 +291,9 @@
             <div class="flex gap-5">
               <div class="neon-rail"></div>
               <div>
-                <h2 class="text-xl font-semibold mb-3 text-slate-900">AI Driven Automation</h2>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">Time-Saving Automations</h2>
                 <p class="text-slate-600 leading-relaxed">
-                  Responsible automation design with guardrails, improving productivity without chaos.
+                  From email sorting to report help, we use AI to reduce busywork and free up your time.
                 </p>
               </div>
             </div>
@@ -311,9 +307,9 @@
       <div class="max-w-3xl mx-auto px-6 py-20">
 
         <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-light title-solid">Ready to evolve?</h2>
+          <h2 class="text-3xl md:text-4xl font-light title-solid">Want to work smarter?</h2>
           <p class="mt-4 text-slate-600 text-lg leading-relaxed">
-            Send a brief message about your current challenge, and I will get back to you within 24 hours to schedule a consultation.
+            Tell me what you want to accomplish, and I will reply within 24 hours to schedule a quick consult.
           </p>
           <div class="title-underline"></div>
         </div>
@@ -371,7 +367,7 @@
 
   <footer class="border-t border-slate-100/70">
     <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
-      <p>© 2026 Equals Genius. All rights reserved.</p>
+      <p>© <span id="year"></span> Equals Genius. All rights reserved.</p>
       <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
         <a href="mailto:info@equalsgenius.com" class="hover:text-slate-900 transition">info@equalsgenius.com</a>
         <span class="hidden sm:inline text-slate-300">|</span>
@@ -381,6 +377,9 @@
   </footer>
 
   <script>
+    // Auto-update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
