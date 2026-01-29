@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Equals Genius | Change Management & AI Strategy</title>
-  <meta name="description" content="Equals Genius is a boutique consultancy providing change management and AI strategy—aligning people, process, and automation for real execution." />
+  <meta name="description" content="Equals Genius is a boutique consultancy for change management and AI strategy. We align people, process, and automation for measurable outcomes." />
 
   <!-- Social preview -->
   <meta property="og:title" content="Equals Genius | Change Management & AI Strategy" />
-  <meta property="og:description" content="Boutique change management and AI strategy support—aligned to execution." />
+  <meta property="og:description" content="Boutique change management and AI strategy. We align people, process, and automation for measurable outcomes." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -28,131 +28,195 @@
 
   <style>
     :root{
-      /* Clean cyberpunk palette (brighter) */
-      --bg: #f7f8fc;
-      --ink: #0f172a;
+      /* Blue -> Green cyber palette (no purple/pink/red) */
+      --bg: #f6f9ff;
+      --ink: #071225;
+      --muted: #46556a;
 
-      --neonA: #00e5ff; /* cyan */
-      --neonB: #ff2bd6; /* magenta */
-      --neonC: #8b5cf6; /* violet */
+      --cyA: #00d9ff;   /* electric cyan */
+      --cyB: #00ffc8;   /* aqua/teal */
+      --cyC: #22c55e;   /* emerald */
+      --cyD: #a3ff12;   /* electric lime (sparingly) */
 
       --card: rgba(255,255,255,0.72);
-      --cardBorder: rgba(15,23,42,0.10);
-      --shadow: 0 18px 40px rgba(2,6,23,0.10);
+      --cardBorder: rgba(7,18,37,0.10);
+
+      --shadow: 0 18px 44px rgba(2, 12, 28, 0.12);
+      --shadowHover: 0 28px 74px rgba(2, 12, 28, 0.16);
     }
 
     html, body { width: 100%; margin: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); }
-    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
 
+    html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
     }
 
-    /* Background: clean + stronger “cyber energy” (no grid) */
+    /* ---- Background: aurora + scanlines + subtle noise ---- */
     .cyber-bg {
       position: relative;
       overflow-x: hidden;
       isolation: isolate;
     }
+
     .cyber-bg::before{
       content:"";
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: -3;
       background:
-        radial-gradient(900px 520px at 10% 12%, rgba(0,229,255,0.26), transparent 60%),
-        radial-gradient(820px 540px at 92% 18%, rgba(255,43,214,0.20), transparent 62%),
-        radial-gradient(980px 640px at 50% 92%, rgba(139,92,246,0.16), transparent 65%),
-        linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(247,248,252,1));
+        radial-gradient(950px 520px at 12% 10%, rgba(0,217,255,0.32), transparent 62%),
+        radial-gradient(900px 560px at 88% 16%, rgba(0,255,200,0.22), transparent 64%),
+        radial-gradient(980px 620px at 50% 96%, rgba(34,197,94,0.18), transparent 66%),
+        linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(246,249,255,1));
     }
 
-    /* Subtle scanlines texture */
+    /* Scanlines, slightly stronger */
     .cyber-bg::after{
       content:"";
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
       pointer-events: none;
-      opacity: 0.22;
+      opacity: 0.24;
       background:
         repeating-linear-gradient(
           to bottom,
-          rgba(15, 23, 42, 0.040) 0px,
-          rgba(15, 23, 42, 0.040) 1px,
+          rgba(7, 18, 37, 0.05) 0px,
+          rgba(7, 18, 37, 0.05) 1px,
           transparent 2px,
-          transparent 6px
+          transparent 7px
         );
       mix-blend-mode: multiply;
     }
 
-    /* Glass cards */
+    /* Subtle noise overlay (SVG noise data URI) */
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    /* ---- Glass cards + cyber accents ---- */
     .glass {
       background: var(--card);
       border: 1px solid var(--cardBorder);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Neon accent rail */
+    .lift {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, filter 220ms ease;
+    }
+    .lift:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadowHover);
+      border-color: rgba(0,217,255,0.22);
+      filter: saturate(1.04);
+    }
+
+    /* Neon rail: animated gradient in blue-green only */
     .neon-rail {
       width: 4px;
       border-radius: 999px;
-      background: linear-gradient(180deg, var(--neonA), var(--neonB));
+      background: linear-gradient(180deg, var(--cyA), var(--cyB), var(--cyC));
+      background-size: 100% 220%;
+      animation: railFlow 5.5s ease-in-out infinite;
       box-shadow:
-        0 0 18px rgba(0,229,255,0.35),
-        0 0 26px rgba(255,43,214,0.25);
+        0 0 18px rgba(0,217,255,0.30),
+        0 0 26px rgba(0,255,200,0.22),
+        0 0 18px rgba(34,197,94,0.18);
+    }
+    @keyframes railFlow {
+      0%, 100% { background-position: 0% 0%; }
+      50% { background-position: 0% 100%; }
     }
 
     /* Circuit divider */
     .circuit-line {
       height: 1px;
-      width: 140px;
+      width: 160px;
       margin: 16px auto 0;
-      background: linear-gradient(90deg, transparent, rgba(0,229,255,0.85), rgba(255,43,214,0.75), rgba(139,92,246,0.65), transparent);
-      opacity: 0.9;
+      background: linear-gradient(90deg, transparent, rgba(0,217,255,0.9), rgba(0,255,200,0.75), rgba(34,197,94,0.65), transparent);
+      opacity: 0.95;
     }
 
-    /* Premium hover */
-    .lift {
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    /* Card corner accents for extra cyber */
+    .corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(0,217,255,0.35);
+      opacity: 0.9;
+      filter: drop-shadow(0 0 10px rgba(0,217,255,0.20));
     }
-    .lift:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 26px 70px rgba(2,6,23,0.14);
-      border-color: rgba(0,229,255,0.26);
-    }
+    .corner.tl { top: 14px; left: 14px; border-right: 0; border-bottom: 0; border-top-left-radius: 10px; }
+    .corner.tr { top: 14px; right: 14px; border-left: 0; border-bottom: 0; border-top-right-radius: 10px; }
+    .corner.bl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; border-bottom-left-radius: 10px; }
+    .corner.br { bottom: 14px; right: 14px; border-left: 0; border-top: 0; border-bottom-right-radius: 10px; }
 
     /* Inputs focus */
     .focus-ring:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(0,229,255,0.35);
-      border-color: rgba(0,229,255,0.35) !important;
+      box-shadow: 0 0 0 3px rgba(0,217,255,0.30);
+      border-color: rgba(0,217,255,0.34) !important;
     }
 
-    /* Neon button */
-    .btn-neon {
-      background: linear-gradient(90deg, rgba(15,23,42,0.97), rgba(15,23,42,0.90));
-      border: 1px solid rgba(0,229,255,0.22);
+    /* Cyber button (blue-green glow) */
+    .btn-cyber {
+      background: linear-gradient(90deg, rgba(7,18,37,0.98), rgba(7,18,37,0.90));
+      border: 1px solid rgba(0,217,255,0.24);
       box-shadow:
-        0 12px 28px rgba(2,6,23,0.12),
-        0 0 18px rgba(0,229,255,0.12);
-      transition: box-shadow 200ms ease, transform 200ms ease, border-color 200ms ease;
+        0 16px 34px rgba(2,12,28,0.14),
+        0 0 18px rgba(0,217,255,0.16),
+        0 0 22px rgba(0,255,200,0.12);
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      position: relative;
+      overflow: hidden;
     }
-    .btn-neon:hover {
+    .btn-cyber::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(0,217,255,0.22), transparent 55%),
+                  radial-gradient(circle at 70% 60%, rgba(0,255,200,0.18), transparent 58%);
+      transform: rotate(10deg);
+      opacity: 0.85;
+      transition: opacity 200ms ease;
+    }
+    .btn-cyber:hover{
       transform: translateY(-1px);
-      border-color: rgba(255,43,214,0.30);
+      border-color: rgba(0,255,200,0.30);
       box-shadow:
-        0 18px 44px rgba(2,6,23,0.14),
-        0 0 22px rgba(0,229,255,0.18),
-        0 0 26px rgba(255,43,214,0.14);
+        0 22px 54px rgba(2,12,28,0.16),
+        0 0 22px rgba(0,217,255,0.20),
+        0 0 26px rgba(0,255,200,0.16),
+        0 0 18px rgba(34,197,94,0.10);
+    }
+    .btn-cyber:hover::before{ opacity: 1; }
+
+    /* Cyber heading gradient (blue->green only) */
+    .cyber-title {
+      background: linear-gradient(90deg, var(--cyA), var(--cyB), var(--cyC));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
   </style>
 </head>
 
 <body class="cyber-bg antialiased">
+  <div class="noise"></div>
 
   <!-- Skip link -->
   <a href="#services"
@@ -173,9 +237,9 @@
       <!-- Logo + one-liner -->
       <div class="mt-8 text-center">
         <div class="flex justify-center">
-          <!-- Cache-bust WITHOUT renaming file -->
+          <!-- Keep filename as logo.png (now truly transparent). Cache-bust optional. -->
           <img
-            src="logo.png?v=3"
+            src="logo.png"
             alt="Equals Genius"
             class="h-56 md:h-72 w-auto object-contain"
             loading="eager"
@@ -183,8 +247,9 @@
           />
         </div>
 
+        <!-- No em-dashes -->
         <p class="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
-          Boutique consulting for change management and AI strategy—aligning people, process, and automation.
+          Boutique consulting for change management and AI strategy. We align people, process, and automation.
         </p>
 
         <div class="circuit-line"></div>
@@ -199,29 +264,37 @@
       <div class="max-w-6xl mx-auto px-6 py-20">
 
         <div class="text-center max-w-3xl mx-auto mb-12">
-          <h1 class="text-3xl md:text-4xl font-light bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-violet-500 bg-clip-text text-transparent">
-            Services
-          </h1>
+          <h1 class="text-3xl md:text-4xl font-light cyber-title">Services</h1>
+
+          <!-- Rewritten, more specific, no "slideware" -->
           <p class="mt-3 text-slate-600">
-            Practical, structured support built for execution—not slideware.
+            Change strategy, workflow optimization, and responsible automation design for complex organizations.
           </p>
+
+          <div class="circuit-line"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          <article class="glass lift rounded-2xl p-8">
+          <article class="relative glass lift rounded-2xl p-8">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+
             <div class="flex gap-5">
               <div class="neon-rail"></div>
               <div>
                 <h2 class="text-xl font-semibold mb-3 text-slate-900">Strategy &amp; Transformation</h2>
                 <p class="text-slate-600 leading-relaxed">
-                  Change strategy and adoption planning for complex, high-impact transformations.
+                  Change strategy and adoption planning for complex, high impact transformations.
                 </p>
               </div>
             </div>
           </article>
 
-          <article class="glass lift rounded-2xl p-8">
+          <article class="relative glass lift rounded-2xl p-8">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+
             <div class="flex gap-5">
               <div class="neon-rail"></div>
               <div>
@@ -233,13 +306,16 @@
             </div>
           </article>
 
-          <article class="glass lift rounded-2xl p-8">
+          <article class="relative glass lift rounded-2xl p-8">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+
             <div class="flex gap-5">
               <div class="neon-rail"></div>
               <div>
-                <h2 class="text-xl font-semibold mb-3 text-slate-900">AI-Driven Automation</h2>
+                <h2 class="text-xl font-semibold mb-3 text-slate-900">AI Driven Automation</h2>
                 <p class="text-slate-600 leading-relaxed">
-                  Responsible automation design with guardrails—enhancing productivity without chaos.
+                  Responsible automation design with guardrails, improving productivity without chaos.
                 </p>
               </div>
             </div>
@@ -254,16 +330,17 @@
       <div class="max-w-3xl mx-auto px-6 py-20">
 
         <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-light bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-violet-500 bg-clip-text text-transparent">
-            Ready to evolve?
-          </h2>
+          <h2 class="text-3xl md:text-4xl font-light cyber-title">Ready to evolve?</h2>
           <p class="mt-4 text-slate-600 text-lg leading-relaxed">
-            Send a brief message about your current challenge, and I’ll get back to you within 24 hours to schedule a consultation.
+            Send a brief message about your current challenge, and I will get back to you within 24 hours to schedule a consultation.
           </p>
           <div class="circuit-line"></div>
         </div>
 
-        <div class="mt-10 glass rounded-2xl p-8">
+        <div class="mt-10 glass rounded-2xl p-8 relative">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+
           <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-5" novalidate>
             <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
 
@@ -296,12 +373,12 @@
             </div>
 
             <button id="submitBtn" type="submit"
-              class="btn-neon w-full py-4 rounded-xl text-white font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed">
+              class="btn-cyber w-full py-4 rounded-xl text-white font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed">
               Send message
             </button>
 
             <p class="text-xs text-slate-500 text-center">
-              No spam—your information stays private.
+              No spam. Your information stays private.
             </p>
 
             <div id="formStatus" class="text-sm hidden text-center"></div>
@@ -345,7 +422,7 @@
       }
 
       submitBtn.disabled = true;
-      setStatus('info', 'Sending…');
+      setStatus('info', 'Sending...');
       statusEl.classList.remove('hidden');
 
       const email = form.querySelector('input[name="email"]').value.trim();
@@ -361,7 +438,7 @@
 
         if (res.ok) {
           form.reset();
-          setStatus('success', 'Message sent. I’ll be in touch soon.');
+          setStatus('success', 'Message sent. I will be in touch soon.');
         } else {
           let data = null;
           try { data = await res.json(); } catch {}
