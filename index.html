@@ -11,7 +11,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
     body { font-family: 'Inter', sans-serif; }
 
-    /* Grid background – only used on Services section */
+    /* Grid background – only on Services section */
     .section-grid {
       position: relative;
       isolation: isolate;
@@ -22,117 +22,82 @@
       inset: 0;
       z-index: -1;
       background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+        linear-gradient(to right, rgba(15, 23, 42, 0.10) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.10) 1px, transparent 1px);
       background-size: 56px 56px;
-      opacity: 0.55; /* adjust 0.35–0.70 */
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 55%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 55%, transparent 100%);
+      opacity: 0.55; /* adjust 0.35–0.75 */
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 55%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 55%, transparent 100%);
     }
 
-    /* Optional: slightly soften everything */
-    .soft-shadow { box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08); }
+    .soft-shadow { box-shadow: 0 14px 34px rgba(2, 6, 23, 0.08); }
   </style>
 </head>
 
 <body class="bg-white text-slate-900 antialiased">
 
-  <!-- Top -->
-  <header class="bg-white">
-    <div class="max-w-6xl mx-auto px-6 pt-10 pb-8">
-
-      <!-- Logo row -->
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <!-- Logo -->
-          <img
-            src="logo.png"
-            alt="Equals Genius"
-            class="h-14 w-auto object-contain"
-          />
-
-          <!-- OPTIONAL fallback if logo has an ugly box:
-               Wrap logo in a "badge" so it looks intentional.
-               Uncomment the wrapper div and move the img inside it.
-
-          <div class="bg-white rounded-2xl px-3 py-2 soft-shadow border border-slate-100">
-            <img src="logo.png" alt="Equals Genius" class="h-12 w-auto object-contain" />
-          </div>
-          -->
-
-        </div>
-
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide uppercase text-slate-500">
+  <!-- Top: Nav + Centered Logo -->
+  <header class="bg-white border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="flex items-center justify-end">
+        <nav class="flex items-center gap-8 text-sm font-medium tracking-wide uppercase text-slate-500">
           <a href="#services" class="hover:text-slate-900 transition">Services</a>
           <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
         </nav>
-
-        <a href="#contact" class="md:hidden text-sm font-medium text-slate-700 border border-slate-200 rounded-full px-4 py-2 hover:bg-slate-50 transition">
-          Contact
-        </a>
       </div>
 
-      <!-- Tagline -->
-      <div class="mt-14 max-w-3xl">
-        <div class="h-1.5 w-16 bg-emerald-500 mb-7"></div>
+      <!-- BIG centered logo -->
+      <div class="mt-8 flex justify-center">
+        <img
+          src="logo.png"
+          alt="Equals Genius"
+          class="h-40 md:h-52 w-auto object-contain"
+        />
+      </div>
 
-        <h1 class="text-4xl md:text-6xl font-light tracking-tight leading-[1.1]">
-          Bridging the gap between
-          <span class="font-semibold italic text-slate-800">human intent</span>
-          and
-          <span class="font-semibold italic text-slate-800">AI execution.</span>
-        </h1>
+      <!-- Optional: if your logo file has a white box baked in, uncomment this wrapper
+           and move the img inside it. It makes it look intentional instead of “oops”.
 
-        <p class="mt-7 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-          Equals Genius is a boutique consultancy specializing in change management for the digital age.
-          We help organizations navigate disruption by aligning people, processes, and automation.
-        </p>
-
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
-          <a href="#contact" class="inline-flex justify-center items-center px-9 py-4 rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-800 transition soft-shadow">
-            Let’s collaborate
-          </a>
-          <a href="#services" class="inline-flex justify-center items-center px-9 py-4 rounded-full border border-slate-200 text-slate-800 font-semibold hover:bg-slate-50 transition">
-            View services
-          </a>
+      <div class="mt-8 flex justify-center">
+        <div class="bg-white rounded-3xl px-6 py-4 soft-shadow border border-slate-100">
+          <img src="logo.png" alt="Equals Genius" class="h-40 md:h-52 w-auto object-contain" />
         </div>
       </div>
+      -->
+
     </div>
   </header>
 
   <!-- Services -->
-  <section id="services" class="section-grid border-t border-slate-100">
+  <section id="services" class="section-grid">
     <div class="max-w-6xl mx-auto px-6 py-20">
 
-      <div class="max-w-2xl mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 class="text-3xl md:text-4xl font-light">Services</h2>
         <p class="mt-3 text-slate-600">
-          Practical strategy, clean execution, and measurable adoption — built for modern teams.
+          Change management and AI strategy support that’s practical, structured, and built for execution.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-          <div class="h-1 w-10 bg-emerald-500 mb-6"></div>
-          <h3 class="text-xl font-semibold mb-3">Strategy & Transformation</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Strategy & Transformation</h3>
           <p class="text-slate-600 leading-relaxed">
-            Change management and adoption strategy for complex, high-stakes transformations.
+            Change strategy and adoption planning for complex, high-impact transformations.
           </p>
         </div>
 
         <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-          <div class="h-1 w-10 bg-emerald-500 mb-6"></div>
-          <h3 class="text-xl font-semibold mb-3">Digital Optimization</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Ecosystem Optimization</h3>
           <p class="text-slate-600 leading-relaxed">
-            Identify silos, streamline workflows, and improve handoffs across teams and tools.
+            Identify friction, reduce silos, and streamline workflows across people, process, and tools.
           </p>
         </div>
 
         <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
-          <div class="h-1 w-10 bg-emerald-500 mb-6"></div>
-          <h3 class="text-xl font-semibold mb-3">AI-Driven Automation</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">AI-Driven Automation</h3>
           <p class="text-slate-600 leading-relaxed">
-            Thoughtful AI integration that boosts human output — with governance and guardrails.
+            Responsible automation design with guardrails—enhancing productivity without chaos.
           </p>
         </div>
       </div>
@@ -140,29 +105,18 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact: headline + paragraph ABOVE form (single column, centered) -->
   <section id="contact" class="bg-slate-50 border-t border-slate-100">
-    <div class="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+    <div class="max-w-3xl mx-auto px-6 py-20">
 
-      <div>
-        <h2 class="text-3xl md:text-4xl font-light">Contact</h2>
-        <p class="mt-4 text-slate-600 text-lg leading-relaxed max-w-xl">
-          Send a quick note about what you’re trying to solve. You’ll get a reply within 24 hours to schedule a consultation.
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-light">Ready to evolve?</h2>
+        <p class="mt-4 text-slate-600 text-lg leading-relaxed">
+          Send a brief message about your current challenge, and I’ll get back to you within 24 hours to schedule a consultation.
         </p>
-
-        <div class="mt-10 space-y-4 text-slate-800 font-medium">
-          <p class="flex items-center">
-            <span class="w-10 h-px bg-emerald-500 mr-4"></span>
-            <a href="mailto:info@equalsgenius.com" class="hover:underline">info@equalsgenius.com</a>
-          </p>
-          <p class="flex items-center">
-            <span class="w-10 h-px bg-emerald-500 mr-4"></span>
-            Based in Leesburg, VA
-          </p>
-        </div>
       </div>
 
-      <div class="bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
+      <div class="mt-10 bg-white rounded-2xl border border-slate-100 p-8 soft-shadow">
         <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-5" novalidate>
           <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
 
@@ -189,7 +143,7 @@
 
           <div>
             <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2" for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required
+            <textarea id="message" name="message" rows="6" required
               class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
               placeholder="What are you trying to accomplish?"></textarea>
           </div>
@@ -206,9 +160,16 @@
     </div>
   </section>
 
-  <footer class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-400 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-2">
-    <p>© 2026 Equals Genius. All rights reserved.</p>
-    <p>Built for the digital age.</p>
+  <!-- Footer: move email + location here -->
+  <footer class="border-t border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
+      <p>© 2026 Equals Genius. All rights reserved.</p>
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+        <a href="mailto:info@equalsgenius.com" class="hover:text-slate-900 transition">info@equalsgenius.com</a>
+        <span class="hidden sm:inline text-slate-300">|</span>
+        <span>Based in Leesburg, VA</span>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -235,7 +196,6 @@
       setStatus('info', 'Sending…');
       statusEl.classList.remove('hidden');
 
-      // Keep _replyto aligned to email
       const email = form.querySelector('input[name="email"]').value.trim();
       const replyTo = form.querySelector('input[name="_replyto"]');
       if (replyTo) replyTo.value = email;
