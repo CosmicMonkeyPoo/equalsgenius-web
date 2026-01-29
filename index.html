@@ -26,18 +26,18 @@
     :root{
       --bg: #f6f9ff;
       --ink: #071225;
-      --muted: #46556a;
 
-      /* Blue -> teal -> green only */
+      /* Blue -> teal -> green palette only */
       --cyA: #00d9ff;   /* cyan */
       --cyB: #00ffc8;   /* aqua */
       --cyC: #22c55e;   /* emerald */
+      --cyDeep: #071a33;
 
-      --card: rgba(255,255,255,0.72);
+      --card: rgba(255,255,255,0.70);
       --cardBorder: rgba(7,18,37,0.10);
 
       --shadow: 0 18px 44px rgba(2, 12, 28, 0.12);
-      --shadowHover: 0 28px 74px rgba(2, 12, 28, 0.16);
+      --shadowHover: 0 30px 84px rgba(2, 12, 28, 0.18);
     }
 
     html, body { width: 100%; margin: 0; }
@@ -53,101 +53,100 @@
       * { transition: none !important; animation: none !important; }
     }
 
-    /* Background: aurora + scanlines + subtle noise */
+    /* =========================================================
+       FUNK METER UP: aurora + scanlines + noise + “energy field”
+       ========================================================= */
     .cyber-bg {
       position: relative;
       overflow-x: hidden;
       isolation: isolate;
     }
 
+    /* Aurora + subtle vignette */
     .cyber-bg::before{
       content:"";
       position: fixed;
       inset: 0;
-      z-index: -3;
+      z-index: -5;
       background:
-        radial-gradient(950px 520px at 12% 10%, rgba(0,217,255,0.34), transparent 62%),
-        radial-gradient(900px 560px at 88% 16%, rgba(0,255,200,0.24), transparent 64%),
-        radial-gradient(980px 620px at 50% 96%, rgba(34,197,94,0.18), transparent 66%),
+        radial-gradient(1150px 620px at 10% 8%, rgba(0,217,255,0.42), transparent 62%),
+        radial-gradient(1050px 640px at 92% 12%, rgba(0,255,200,0.30), transparent 64%),
+        radial-gradient(1100px 720px at 50% 96%, rgba(34,197,94,0.22), transparent 66%),
+        radial-gradient(1200px 900px at 50% 50%, rgba(7, 26, 51, 0.10), transparent 62%),
         linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(246,249,255,1));
     }
 
+    /* Scanlines */
     .cyber-bg::after{
       content:"";
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: -4;
       pointer-events: none;
-      opacity: 0.24;
+      opacity: 0.22;
       background:
         repeating-linear-gradient(
           to bottom,
-          rgba(7, 18, 37, 0.05) 0px,
-          rgba(7, 18, 37, 0.05) 1px,
+          rgba(7, 18, 37, 0.06) 0px,
+          rgba(7, 18, 37, 0.06) 1px,
           transparent 2px,
           transparent 7px
         );
       mix-blend-mode: multiply;
     }
 
+    /* Noise */
     .noise {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -3;
       pointer-events: none;
-      opacity: 0.06;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      opacity: 0.07;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     }
 
+    /* Animated energy sweep (very subtle, but adds cyber vibe) */
+    .energy {
+      position: fixed;
+      inset: -60vh -40vw;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        conic-gradient(from 180deg at 50% 50%,
+          rgba(0,217,255,0.00),
+          rgba(0,217,255,0.08),
+          rgba(0,255,200,0.06),
+          rgba(34,197,94,0.05),
+          rgba(0,217,255,0.00)
+        );
+      filter: blur(40px);
+      opacity: 0.55;
+      animation: spin 18s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* =========================================================
+       Glass + hover
+       ========================================================= */
     .glass {
       background: var(--card);
       border: 1px solid var(--cardBorder);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .lift {
       transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, filter 220ms ease;
     }
     .lift:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       box-shadow: var(--shadowHover);
-      border-color: rgba(0,217,255,0.22);
-      filter: saturate(1.05);
-    }
-
-    .neon-rail {
-      width: 4px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, var(--cyA), var(--cyB), var(--cyC));
-      background-size: 100% 220%;
-      animation: railFlow 5.5s ease-in-out infinite;
-      box-shadow:
-        0 0 18px rgba(0,217,255,0.30),
-        0 0 26px rgba(0,255,200,0.22),
-        0 0 18px rgba(34,197,94,0.16);
-    }
-    @keyframes railFlow {
-      0%, 100% { background-position: 0% 0%; }
-      50% { background-position: 0% 100%; }
-    }
-
-    /* Headings: solid color, underline stays readable */
-    .title-solid {
-      color: var(--ink);
-      letter-spacing: -0.015em;
-    }
-    .title-underline {
-      height: 2px;
-      width: 180px;
-      margin: 14px auto 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, rgba(0,217,255,0.95), rgba(0,255,200,0.85), rgba(34,197,94,0.75), transparent);
-      box-shadow:
-        0 0 18px rgba(0,217,255,0.18),
-        0 0 18px rgba(0,255,200,0.12);
-      opacity: 0.95;
+      border-color: rgba(0,217,255,0.28);
+      filter: saturate(1.06);
     }
 
     /* Card corner accents */
@@ -156,28 +155,64 @@
       width: 18px;
       height: 18px;
       border: 2px solid rgba(0,217,255,0.35);
-      opacity: 0.9;
-      filter: drop-shadow(0 0 10px rgba(0,217,255,0.18));
+      opacity: 0.95;
+      filter: drop-shadow(0 0 12px rgba(0,217,255,0.22));
     }
     .corner.tl { top: 14px; left: 14px; border-right: 0; border-bottom: 0; border-top-left-radius: 10px; }
     .corner.tr { top: 14px; right: 14px; border-left: 0; border-bottom: 0; border-top-right-radius: 10px; }
     .corner.bl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; border-bottom-left-radius: 10px; }
     .corner.br { bottom: 14px; right: 14px; border-left: 0; border-top: 0; border-bottom-right-radius: 10px; }
 
+    /* Neon rail */
+    .neon-rail {
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--cyA), var(--cyB), var(--cyC));
+      background-size: 100% 220%;
+      animation: railFlow 5.5s ease-in-out infinite;
+      box-shadow:
+        0 0 22px rgba(0,217,255,0.34),
+        0 0 30px rgba(0,255,200,0.22),
+        0 0 20px rgba(34,197,94,0.16);
+    }
+    @keyframes railFlow {
+      0%, 100% { background-position: 0% 0%; }
+      50% { background-position: 0% 100%; }
+    }
+
+    /* Underlines */
+    .title-solid { color: var(--ink); letter-spacing: -0.015em; }
+    .title-underline {
+      height: 2px;
+      width: 190px;
+      margin: 14px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(0,217,255,0.95), rgba(0,255,200,0.85), rgba(34,197,94,0.78), transparent);
+      box-shadow:
+        0 0 22px rgba(0,217,255,0.22),
+        0 0 18px rgba(0,255,200,0.14);
+      opacity: 0.98;
+    }
+
+    /* Input focus */
     .focus-ring:focus {
       outline: none;
       box-shadow: 0 0 0 3px rgba(0,217,255,0.30);
       border-color: rgba(0,217,255,0.34) !important;
     }
 
+    /* =========================================================
+       FUNK METER UP: button matches logo palette (not dark)
+       ========================================================= */
     .btn-cyber {
-      background: linear-gradient(90deg, rgba(7,18,37,0.98), rgba(7,18,37,0.90));
-      border: 1px solid rgba(0,217,255,0.24);
+      background: linear-gradient(90deg, rgba(0,217,255,0.95), rgba(0,255,200,0.92), rgba(34,197,94,0.90));
+      color: rgba(7,18,37,0.92);
+      border: 1px solid rgba(7,18,37,0.10);
       box-shadow:
-        0 16px 34px rgba(2,12,28,0.14),
-        0 0 18px rgba(0,217,255,0.16),
-        0 0 22px rgba(0,255,200,0.12);
-      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+        0 18px 46px rgba(2,12,28,0.14),
+        0 0 24px rgba(0,217,255,0.20),
+        0 0 24px rgba(0,255,200,0.16);
+      transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
       position: relative;
       overflow: hidden;
     }
@@ -186,28 +221,40 @@
       position:absolute;
       inset:-40%;
       background:
-        radial-gradient(circle at 30% 30%, rgba(0,217,255,0.22), transparent 55%),
-        radial-gradient(circle at 70% 60%, rgba(0,255,200,0.18), transparent 58%),
-        radial-gradient(circle at 55% 50%, rgba(34,197,94,0.12), transparent 62%);
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.24), transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.14), transparent 58%);
       transform: rotate(10deg);
-      opacity: 0.90;
+      opacity: 0.95;
       transition: opacity 200ms ease;
     }
     .btn-cyber:hover{
       transform: translateY(-1px);
-      border-color: rgba(0,255,200,0.30);
+      filter: saturate(1.05) contrast(1.03);
       box-shadow:
-        0 22px 54px rgba(2,12,28,0.16),
-        0 0 22px rgba(0,217,255,0.20),
-        0 0 26px rgba(0,255,200,0.16),
-        0 0 18px rgba(34,197,94,0.10);
+        0 26px 66px rgba(2,12,28,0.16),
+        0 0 28px rgba(0,217,255,0.24),
+        0 0 28px rgba(0,255,200,0.18),
+        0 0 20px rgba(34,197,94,0.14);
     }
     .btn-cyber:hover::before{ opacity: 1; }
+
+    /* Subtle “pulse” highlight for the logo area only */
+    .logo-glow {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 50% 50%, rgba(0,217,255,0.10), rgba(0,255,200,0.06), transparent 70%);
+      box-shadow:
+        0 0 0 1px rgba(0,217,255,0.08),
+        0 0 34px rgba(0,217,255,0.12),
+        0 0 34px rgba(0,255,200,0.08);
+    }
   </style>
 </head>
 
 <body class="cyber-bg antialiased">
   <div class="noise"></div>
+  <div class="energy"></div>
 
   <a href="#services"
      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow">
@@ -224,13 +271,16 @@
 
       <div class="mt-8 text-center">
         <div class="flex justify-center">
-          <img
-            src="logo.png?v=20260129-2"
-            alt="Equals Genius"
-            class="h-56 md:h-72 w-auto object-contain"
-            loading="eager"
-            decoding="async"
-          />
+          <span class="logo-glow">
+            <!-- Logo 1.5x bigger: previous h-56/md:h-72 -> h-84/md:h-[27rem] -->
+            <img
+              src="logo.png?v=20260129-3"
+              alt="Equals Genius"
+              class="h-84 md:h-[27rem] w-auto object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </span>
         </div>
 
         <p class="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
@@ -349,7 +399,7 @@
             </div>
 
             <button id="submitBtn" type="submit"
-              class="btn-cyber w-full py-4 rounded-xl text-white font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed">
+              class="btn-cyber w-full py-4 rounded-xl font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed">
               Send message
             </button>
 
