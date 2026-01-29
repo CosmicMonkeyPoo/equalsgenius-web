@@ -7,36 +7,31 @@
   <title>Equals Genius | Change Management & AI Strategy</title>
   <meta name="description" content="Equals Genius is a boutique consultancy for change management and AI strategy. We align people, process, and automation for measurable outcomes." />
 
-  <!-- Social preview -->
   <meta property="og:title" content="Equals Genius | Change Management & AI Strategy" />
   <meta property="og:description" content="Boutique change management and AI strategy. We align people, process, and automation for measurable outcomes." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicons -->
   <link rel="icon" type="image/png" href="favicon_32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon_256.png" sizes="256x256" />
   <link rel="apple-touch-icon" href="favicon_180.png" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root{
-      /* Blue -> Green cyber palette (no purple/pink/red) */
       --bg: #f6f9ff;
       --ink: #071225;
       --muted: #46556a;
 
-      --cyA: #00d9ff;   /* electric cyan */
-      --cyB: #00ffc8;   /* aqua/teal */
+      /* Blue -> teal -> green only */
+      --cyA: #00d9ff;   /* cyan */
+      --cyB: #00ffc8;   /* aqua */
       --cyC: #22c55e;   /* emerald */
-      --cyD: #a3ff12;   /* electric lime (sparingly) */
 
       --card: rgba(255,255,255,0.72);
       --cardBorder: rgba(7,18,37,0.10);
@@ -58,7 +53,7 @@
       * { transition: none !important; animation: none !important; }
     }
 
-    /* ---- Background: aurora + scanlines + subtle noise ---- */
+    /* Background: aurora + scanlines + subtle noise */
     .cyber-bg {
       position: relative;
       overflow-x: hidden;
@@ -71,13 +66,12 @@
       inset: 0;
       z-index: -3;
       background:
-        radial-gradient(950px 520px at 12% 10%, rgba(0,217,255,0.32), transparent 62%),
-        radial-gradient(900px 560px at 88% 16%, rgba(0,255,200,0.22), transparent 64%),
+        radial-gradient(950px 520px at 12% 10%, rgba(0,217,255,0.34), transparent 62%),
+        radial-gradient(900px 560px at 88% 16%, rgba(0,255,200,0.24), transparent 64%),
         radial-gradient(980px 620px at 50% 96%, rgba(34,197,94,0.18), transparent 66%),
         linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(246,249,255,1));
     }
 
-    /* Scanlines, slightly stronger */
     .cyber-bg::after{
       content:"";
       position: fixed;
@@ -96,7 +90,6 @@
       mix-blend-mode: multiply;
     }
 
-    /* Subtle noise overlay (SVG noise data URI) */
     .noise {
       position: fixed;
       inset: 0;
@@ -106,7 +99,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     }
 
-    /* ---- Glass cards + cyber accents ---- */
     .glass {
       background: var(--card);
       border: 1px solid var(--cardBorder);
@@ -122,10 +114,9 @@
       transform: translateY(-4px);
       box-shadow: var(--shadowHover);
       border-color: rgba(0,217,255,0.22);
-      filter: saturate(1.04);
+      filter: saturate(1.05);
     }
 
-    /* Neon rail: animated gradient in blue-green only */
     .neon-rail {
       width: 4px;
       border-radius: 999px;
@@ -135,44 +126,50 @@
       box-shadow:
         0 0 18px rgba(0,217,255,0.30),
         0 0 26px rgba(0,255,200,0.22),
-        0 0 18px rgba(34,197,94,0.18);
+        0 0 18px rgba(34,197,94,0.16);
     }
     @keyframes railFlow {
       0%, 100% { background-position: 0% 0%; }
       50% { background-position: 0% 100%; }
     }
 
-    /* Circuit divider */
-    .circuit-line {
-      height: 1px;
-      width: 160px;
-      margin: 16px auto 0;
-      background: linear-gradient(90deg, transparent, rgba(0,217,255,0.9), rgba(0,255,200,0.75), rgba(34,197,94,0.65), transparent);
+    /* Headings: solid color, cyber underline so contrast never drops */
+    .title-solid {
+      color: var(--ink);
+      letter-spacing: -0.015em;
+    }
+    .title-underline {
+      height: 2px;
+      width: 180px;
+      margin: 14px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(0,217,255,0.95), rgba(0,255,200,0.85), rgba(34,197,94,0.75), transparent);
+      box-shadow:
+        0 0 18px rgba(0,217,255,0.18),
+        0 0 18px rgba(0,255,200,0.12);
       opacity: 0.95;
     }
 
-    /* Card corner accents for extra cyber */
+    /* Card corner accents */
     .corner {
       position: absolute;
       width: 18px;
       height: 18px;
       border: 2px solid rgba(0,217,255,0.35);
       opacity: 0.9;
-      filter: drop-shadow(0 0 10px rgba(0,217,255,0.20));
+      filter: drop-shadow(0 0 10px rgba(0,217,255,0.18));
     }
     .corner.tl { top: 14px; left: 14px; border-right: 0; border-bottom: 0; border-top-left-radius: 10px; }
     .corner.tr { top: 14px; right: 14px; border-left: 0; border-bottom: 0; border-top-right-radius: 10px; }
     .corner.bl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; border-bottom-left-radius: 10px; }
     .corner.br { bottom: 14px; right: 14px; border-left: 0; border-top: 0; border-bottom-right-radius: 10px; }
 
-    /* Inputs focus */
     .focus-ring:focus {
       outline: none;
       box-shadow: 0 0 0 3px rgba(0,217,255,0.30);
       border-color: rgba(0,217,255,0.34) !important;
     }
 
-    /* Cyber button (blue-green glow) */
     .btn-cyber {
       background: linear-gradient(90deg, rgba(7,18,37,0.98), rgba(7,18,37,0.90));
       border: 1px solid rgba(0,217,255,0.24);
@@ -188,10 +185,12 @@
       content:"";
       position:absolute;
       inset:-40%;
-      background: radial-gradient(circle at 30% 30%, rgba(0,217,255,0.22), transparent 55%),
-                  radial-gradient(circle at 70% 60%, rgba(0,255,200,0.18), transparent 58%);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,217,255,0.22), transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(0,255,200,0.18), transparent 58%),
+        radial-gradient(circle at 55% 50%, rgba(34,197,94,0.12), transparent 62%);
       transform: rotate(10deg);
-      opacity: 0.85;
+      opacity: 0.90;
       transition: opacity 200ms ease;
     }
     .btn-cyber:hover{
@@ -204,42 +203,30 @@
         0 0 18px rgba(34,197,94,0.10);
     }
     .btn-cyber:hover::before{ opacity: 1; }
-
-    /* Cyber heading gradient (blue->green only) */
-    .cyber-title {
-      background: linear-gradient(90deg, var(--cyA), var(--cyB), var(--cyC));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
   </style>
 </head>
 
 <body class="cyber-bg antialiased">
   <div class="noise"></div>
 
-  <!-- Skip link -->
   <a href="#services"
      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow">
     Skip to content
   </a>
 
-  <!-- Header -->
   <header class="border-b border-slate-100/70 bg-white/35">
     <div class="max-w-6xl mx-auto px-6 py-8">
 
-      <!-- Nav -->
       <nav class="flex justify-center gap-8 text-sm font-semibold tracking-wide uppercase text-slate-500">
         <a href="#services" class="hover:text-slate-900 transition rounded px-2 py-1">Services</a>
         <a href="#contact" class="hover:text-slate-900 transition rounded px-2 py-1">Contact</a>
       </nav>
 
-      <!-- Logo + one-liner -->
       <div class="mt-8 text-center">
         <div class="flex justify-center">
-          <!-- Keep filename as logo.png (now truly transparent). Cache-bust optional. -->
+          <!-- This query string forces mobile/CDN to fetch the newest image without renaming the file -->
           <img
-            src="logo.png"
+            src="logo.png?v=20260129-1"
             alt="Equals Genius"
             class="h-56 md:h-72 w-auto object-contain"
             loading="eager"
@@ -247,31 +234,26 @@
           />
         </div>
 
-        <!-- No em-dashes -->
         <p class="mt-4 text-slate-600 text-base md:text-lg max-w-3xl mx-auto">
           Boutique consulting for change management and AI strategy. We align people, process, and automation.
         </p>
 
-        <div class="circuit-line"></div>
+        <div class="title-underline"></div>
       </div>
 
     </div>
   </header>
 
-  <!-- Services -->
   <main>
     <section id="services">
       <div class="max-w-6xl mx-auto px-6 py-20">
 
         <div class="text-center max-w-3xl mx-auto mb-12">
-          <h1 class="text-3xl md:text-4xl font-light cyber-title">Services</h1>
-
-          <!-- Rewritten, more specific, no "slideware" -->
+          <h1 class="text-3xl md:text-4xl font-light title-solid">Services</h1>
           <p class="mt-3 text-slate-600">
             Change strategy, workflow optimization, and responsible automation design for complex organizations.
           </p>
-
-          <div class="circuit-line"></div>
+          <div class="title-underline"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -325,16 +307,15 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="border-t border-slate-100/70 bg-white/35">
       <div class="max-w-3xl mx-auto px-6 py-20">
 
         <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-light cyber-title">Ready to evolve?</h2>
+          <h2 class="text-3xl md:text-4xl font-light title-solid">Ready to evolve?</h2>
           <p class="mt-4 text-slate-600 text-lg leading-relaxed">
             Send a brief message about your current challenge, and I will get back to you within 24 hours to schedule a consultation.
           </p>
-          <div class="circuit-line"></div>
+          <div class="title-underline"></div>
         </div>
 
         <div class="mt-10 glass rounded-2xl p-8 relative">
@@ -344,7 +325,6 @@
           <form id="contactForm" action="https://formspree.io/f/xkorlnrr" method="POST" class="space-y-5" novalidate>
             <input type="hidden" name="_subject" value="New Inquiry: Equals Genius Site" />
 
-            <!-- Honeypot -->
             <div class="hidden" aria-hidden="true">
               <label>Leave this field empty</label>
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
@@ -389,7 +369,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="border-t border-slate-100/70">
     <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
       <p>© 2026 Equals Genius. All rights reserved.</p>
@@ -452,6 +431,5 @@
       }
     });
   </script>
-
 </body>
 </html>
